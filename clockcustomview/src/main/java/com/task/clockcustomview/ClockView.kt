@@ -14,6 +14,17 @@ import kotlin.math.sin
 // Start angle is the top of the clock
 private const val START_ANGLE = -Math.PI / 2
 
+// The view is invalidated every *REFRESH_PERIOD* milliseconds
+// This number of milliseconds is the maximum number at which sometimes
+// uneven jumps of the second hand are imperceptible to the user
+private const val REFRESH_PERIOD = 180L
+
+// Default width of the view in dp
+private const val DEFAULT_WIDTH_IN_DP = 240
+
+// Default height of the view in dp
+private const val DEFAULT_HEIGHT_IN_DP = 240
+
 class ClockView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
@@ -235,16 +246,17 @@ class ClockView @JvmOverloads constructor(
         drawHourLabels(canvas)
         // Draw the clock's hands
         drawClockHands(canvas)
-        // Invalidate every 180 ms so second hand uneven
-        // jumps wouldn't be visible to user
-        postInvalidateDelayed(180)
+        // Invalidate the view every certain amount of milliseconds
+        // so the clock's hands would always show the right time
+        // and the second hand would move evenly
+        postInvalidateDelayed(REFRESH_PERIOD)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        // 240 dp to closest amount of px
-        val defaultWidth = (240 * resources.displayMetrics.density).toInt()
-        // 240 dp to closest amount of px
-        val defaultHeight = (240 * resources.displayMetrics.density).toInt()
+        // convert default width in dp to closest amount of px
+        val defaultWidth = (DEFAULT_WIDTH_IN_DP * resources.displayMetrics.density).toInt()
+        // convert default height in dp to closest amount of px
+        val defaultHeight = (DEFAULT_HEIGHT_IN_DP * resources.displayMetrics.density).toInt()
 
         // Resolve width considering Measure Spec constraints
         val widthToSet = resolveSize(defaultWidth, widthMeasureSpec)
