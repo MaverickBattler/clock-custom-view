@@ -10,4 +10,7 @@
     <string name="clock_colors">Разные расцветки</string>
     <string name="fullscreen_clock">Часы на весь экран</string>
     <string name="clock_usage_example">Пример использования часов</string>
+    <string name="fullscreen">На весь экран</string>
+    <string name="usage">Использование</string>
+    <string name="colors">Расцветки</string>
 </resources>

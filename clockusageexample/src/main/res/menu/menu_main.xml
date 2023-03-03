@@ -3,13 +3,13 @@
     <item
         android:id="@+id/firstExampleFragment"
         android:icon="@drawable/number_1"
-        android:title="@string/first_example" />
+        android:title="@string/fullscreen" />
     <item
         android:id="@+id/secondExampleFragment"
         android:icon="@drawable/number_2"
-        android:title="@string/second_example" />
+        android:title="@string/usage" />
     <item
         android:id="@+id/thirdExampleFragment"
         android:icon="@drawable/number_3"
-        android:title="@string/third_example" />
+        android:title="@string/colors" />
 </menu>
