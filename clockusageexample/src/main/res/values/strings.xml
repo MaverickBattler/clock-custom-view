@@ -1,0 +1,13 @@
+<resources>
+    <string name="clock_custom_view">Clock Custom View</string>
+    <string name="Clock">Часы</string>
+    <string name="first_example">Первый пример</string>
+    <string name="second_example">Второй пример</string>
+    <string name="third_example">Третий пример</string>
+    <string name="last_test_completion">Предыдущее заполнение анкеты - 12:32</string>
+    <string name="test_oks_explanation"><b>Oxford Knee Score (OKS)</b> – это анкета, которая используется для оценки боли и функции коленного сустава после операции тотального эндопротезирования. \nРекомендуем заполнять анкету каждые 3 часа.</string>
+    <string name="main_menu_run_oks">Заполнить анкету Oxford Knee Score</string>
+    <string name="clock_colors">Разные расцветки</string>
+    <string name="fullscreen_clock">Часы на весь экран</string>
+    <string name="clock_usage_example">Пример использования часов</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:contentDescription="@string/clock_colors">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ThirdExampleFragment">
+
+        <com.task.clockcustomview.ClockView
+            android:id="@+id/clockView1"
+            android:layout_width="170dp"
+            android:layout_height="170dp" />
+
+        <com.task.clockcustomview.ClockView
+            android:id="@+id/clockView2"
+            app:secondHandColor="@color/black"
+            android:layout_width="170dp"
+            android:layout_height="170dp" />
+
+        <com.task.clockcustomview.ClockView
+            android:id="@+id/clockView3"
+            app:baseColor="@color/black"
+            app:hourHandColor="@color/white"
+            app:minuteHandColor="@color/white"
+            app:dotsColor="@color/white"
+            app:textColor="@color/white"
+            android:layout_width="170dp"
+            android:layout_height="170dp" />
+
+        <com.task.clockcustomview.ClockView
+            android:id="@+id/clockView4"
+            app:frameColor="@color/red_variant"
+            app:secondHandColor="@color/red_variant"
+            android:layout_width="170dp"
+            android:layout_height="170dp" />
+
+        <com.task.clockcustomview.ClockView
+            android:id="@+id/clockView5"
+            app:baseColor="@color/light_green"
+            app:secondHandColor="@color/black"
+            android:layout_width="170dp"
+            android:layout_height="170dp" />
+
+        <com.task.clockcustomview.ClockView
+            android:id="@+id/clockView6"
+            app:baseColor="@color/black"
+            app:dotsColor="@color/bright_aquamarine"
+            app:hourHandColor="@color/bright_aquamarine"
+            app:minuteHandColor="@color/bright_aquamarine"
+            app:secondHandColor="@color/red"
+            app:textColor="@color/bright_aquamarine"
+            android:layout_width="170dp"
+            android:layout_height="170dp" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="15dp"
+            app:constraint_referenced_ids="clockView1,clockView2,clockView3,clockView4,clockView5,clockView6"
+            app:flow_horizontalGap="10dp"
+            app:flow_verticalGap="15dp"
+            app:flow_wrapMode="chain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
