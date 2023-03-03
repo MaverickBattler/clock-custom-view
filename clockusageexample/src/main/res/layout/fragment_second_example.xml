@@ -25,6 +25,7 @@
             android:textSize="16sp" />
 
         <com.task.clockcustomview.ClockView
+            android:id="@+id/clockView_oks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

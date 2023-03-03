@@ -8,5 +8,6 @@
     <color name="bright_aquamarine">#55F8BE</color>
     <color name="turquoise">#009767</color>
     <color name="light_green">#CFFAEC</color>
+    <color name="bright_red">#FF0001</color>
     <color name="red_variant">#B41717</color>
 </resources>
