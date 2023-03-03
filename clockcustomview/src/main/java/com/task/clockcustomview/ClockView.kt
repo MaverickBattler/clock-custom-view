@@ -2,6 +2,8 @@ package com.task.clockcustomview
 
 import android.content.Context
 import android.graphics.*
+import android.os.Bundle
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -41,25 +43,25 @@ class ClockView @JvmOverloads constructor(
     private val position: PointF = PointF(0.0f, 0.0f)
 
     // Color of the clock's base
-    private var baseColor = 0
+    var baseColor = 0
 
     // Color of the hour labels
-    private var textColor = 0
+    var textColor = 0
 
     // Color of the border's color
-    private var frameColor = 0
+    var frameColor = 0
 
     // Color of the dots on the clock
-    private var dotsColor = 0
+    var dotsColor = 0
 
     // Color of the hour hand
-    private var hourHandColor = 0
+    var hourHandColor = 0
 
     // Color of the minute hand
-    private var minuteHandColor = 0
+    var minuteHandColor = 0
 
     // Color of the second hand
-    private var secondHandColor = 0
+    var secondHandColor = 0
 
     init {
         // Set the values of colors
@@ -264,5 +266,38 @@ class ClockView @JvmOverloads constructor(
         val heightToSet = resolveSize(defaultHeight, heightMeasureSpec)
 
         setMeasuredDimension(widthToSet, heightToSet)
+    }
+
+    // Saving instance state to survive configuration changes
+    override fun onSaveInstanceState(): Parcelable {
+        val bundle = Bundle()
+        bundle.putParcelable("superState", super.onSaveInstanceState())
+        // It makes sense to save colors of the clock's parts in case
+        // they are changed at runtime
+        bundle.putInt("baseColor", baseColor)
+        bundle.putInt("textColor", textColor)
+        bundle.putInt("frameColor", frameColor)
+        bundle.putInt("dotsColor", dotsColor)
+        bundle.putInt("hourHandColor", hourHandColor)
+        bundle.putInt("minuteHandColor", minuteHandColor)
+        bundle.putInt("secondHandColor", secondHandColor)
+        return bundle
+    }
+
+    // Restoring instance state
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        var superState: Parcelable? = null
+        if (state is Bundle) {
+            baseColor = state.getInt("baseColor")
+            textColor = state.getInt("textColor")
+            frameColor = state.getInt("frameColor")
+            dotsColor = state.getInt("dotsColor")
+            hourHandColor = state.getInt("hourHandColor")
+            minuteHandColor = state.getInt("minuteHandColor")
+            secondHandColor = state.getInt("secondHandColor")
+            @Suppress("DEPRECATION")
+            superState = state.getParcelable("superState")
+        }
+        super.onRestoreInstanceState(superState)
     }
 }
