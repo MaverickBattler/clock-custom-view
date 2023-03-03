@@ -2,6 +2,7 @@ package com.task.clockcustomview
 
 import android.content.Context
 import android.graphics.*
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
@@ -295,8 +296,9 @@ class ClockView @JvmOverloads constructor(
             hourHandColor = state.getInt("hourHandColor")
             minuteHandColor = state.getInt("minuteHandColor")
             secondHandColor = state.getInt("secondHandColor")
-            @Suppress("DEPRECATION")
-            superState = state.getParcelable("superState")
+            superState =
+                if (SDK_INT >= 33) state.getParcelable("superState", Parcelable::class.java)
+                else @Suppress("DEPRECATION") state.getParcelable("superState")
         }
         super.onRestoreInstanceState(superState)
     }
