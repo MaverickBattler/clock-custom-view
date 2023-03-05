@@ -23,10 +23,10 @@ class SecondExampleFragment : Fragment() {
         val button = view.findViewById<Button>(R.id.run_oks_button)
         button.setOnClickListener {
             val clock = view.findViewById<ClockView>(R.id.clockView_oks)
-            if (clock.secondHandColor == ContextCompat.getColor(view.context, R.color.black))
-                clock.secondHandColor = ContextCompat.getColor(view.context, R.color.bright_red)
+            if (clock.secondHandColor == ContextCompat.getColor(requireActivity(), R.color.black))
+                clock.secondHandColor = ContextCompat.getColor(requireActivity(), R.color.bright_red)
             else
-                clock.secondHandColor = ContextCompat.getColor(view.context, R.color.black)
+                clock.secondHandColor = ContextCompat.getColor(requireActivity(), R.color.black)
         }
         return view
     }
