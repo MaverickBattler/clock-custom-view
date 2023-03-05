@@ -24,7 +24,8 @@ class SecondExampleFragment : Fragment() {
         button.setOnClickListener {
             val clock = view.findViewById<ClockView>(R.id.clockView_oks)
             if (clock.secondHandColor == ContextCompat.getColor(requireActivity(), R.color.black))
-                clock.secondHandColor = ContextCompat.getColor(requireActivity(), R.color.bright_red)
+                clock.secondHandColor =
+                    ContextCompat.getColor(requireActivity(), R.color.bright_red)
             else
                 clock.secondHandColor = ContextCompat.getColor(requireActivity(), R.color.black)
         }
